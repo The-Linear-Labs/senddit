@@ -1,0 +1,541 @@
+/* SENDD IT App - Simple Design System */
+:root {
+    /* Primary Colors */
+    --primary-orange: #FF6B35;
+    --primary-purple: #8B5CF6;
+    --primary-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #1a1a2e 75%, #16213e 100%);
+    
+    /* Neutral Colors */
+    --white: #FFFFFF;
+    --black: #000000;
+    --text-primary: #FFFFFF;
+    --text-secondary: #F0F0F0;
+    --text-muted: rgba(255, 255, 255, 0.8);
+    --background-overlay: rgba(0, 0, 0, 0.2);
+    
+    /* Typography */
+    --font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-pill: 50px;
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.25);
+    --shadow-button: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--primary-gradient);
+    min-height: 100vh;
+    color: var(--text-primary);
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 16px;
+    font-weight: var(--font-regular);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main Container */
+.main-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: var(--space-lg) 0;
+}
+
+.content-wrapper {
+    max-width: 1700px;
+    width: 100%;
+    padding: 0 var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hero Section */
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 120px;
+    align-items: center;
+    width: 100%;
+    max-width: 2400px;
+}
+
+/* Left Column */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 80vh;
+    order: 1; /* Always ensure left column appears first */
+}
+
+/* Remove min-height when stacked to eliminate large distance */
+@media (max-width: 1221px) {
+    .left-column {
+        min-height: auto;
+        margin-top: var(--space-lg);
+    }
+}
+
+/* Right Column */
+.right-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    order: 2; /* Always ensure right column appears second */
+}
+
+/* Logo and Title */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.app-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-elevated);
+}
+
+.app-title {
+    font-size: 48px;
+    font-weight: var(--font-bold);
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F0F0F0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Tagline and Description */
+.tagline {
+    font-size: 28px;
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-md);
+    color: var(--text-secondary);
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: var(--space-xl);
+    max-width: 400px;
+}
+
+/* Pricing Section */
+.pricing-section {
+    margin-bottom: var(--space-lg);
+}
+
+.pricing-text {
+    font-size: 20px;
+    font-weight: var(--font-semibold);
+    color: var(--primary-orange);
+    background: rgba(255, 107, 53, 0.1);
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    backdrop-filter: blur(10px);
+    display: inline-block;
+}
+
+/* Phone Showcase */
+.phone-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+}
+
+.two-phones-image {
+    width: 100%;
+    height: auto;
+    max-width: 2500px;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+    transition: transform 0.3s ease;
+}
+
+.two-phones-image:hover {
+    transform: scale(1.02);
+}
+
+/* Image Placeholder */
+.image-placeholder {
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.placeholder-text {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.placeholder-text h3 {
+    font-size: 24px;
+    margin-bottom: var(--space-md);
+    color: var(--primary-orange);
+}
+
+.placeholder-text p {
+    font-size: 16px;
+    opacity: 0.8;
+    font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Download Section */
+.download-section {
+    margin-top: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.download-text {
+    font-size: 20px;
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.download-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.app-store-btn,
+.play-store-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.app-store-btn:hover,
+.play-store-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.app-store-btn img,
+.play-store-btn img {
+    height: 60px;
+    width: 180px;
+    display: block;
+    object-fit: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 1221px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .left-column {
+        order: 1; /* Left column appears first */
+    }
+
+    .right-column {
+        order: 2; /* Right column appears second */
+    }
+
+    .main-container {
+        padding: var(--space-md) 0;
+}
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .left-column {
+        padding: var(--space-sm);
+        order: 1; /* Left column appears first on mobile */
+        min-height: auto; /* Remove fixed height on mobile */
+        margin-top: var(--space-md); /* Smaller margin on mobile */
+    }
+    
+    .right-column {
+        order: 2; /* Right column appears second on mobile */
+    }
+
+    .app-title {
+    font-size: 36px;
+}
+
+    .tagline {
+        font-size: 24px;
+}
+
+    .description {
+    font-size: 16px;
+        max-width: 100%;
+}
+
+    .pricing-text {
+        font-size: 18px;
+        padding: var(--space-sm) var(--space-lg);
+    }
+
+
+    
+    .phone-showcase {
+        max-width: 600px;
+        padding: 0;
+    }
+    
+    .two-phones-image {
+        max-width: 600px;
+    }
+    
+    .content-wrapper {
+        padding: var(--space-md);
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        overflow-y: auto;
+}
+
+    .main-container {
+        height: auto;
+        min-height: 100vh;
+        padding: var(--space-lg) 0;
+}
+
+    .hero-section {
+        gap: var(--space-md);
+    }
+
+        .left-column {
+        padding: var(--space-sm);
+        min-height: auto; /* Remove fixed height on mobile */
+        margin-top: var(--space-sm); /* Minimal margin on smallest screens */
+    }
+
+    .app-title {
+        font-size: 28px;
+}
+
+    .tagline {
+        font-size: 20px;
+}
+
+    .pricing-text {
+        font-size: 16px;
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .phone-showcase {
+        max-width: 450px;
+        padding: 0;
+    }
+
+    .two-phones-image {
+        max-width: 450px;
+}
+
+    .logo-container {
+        justify-content: center;
+}
+
+    .app-logo {
+        width: 50px;
+        height: 50px;
+}
+
+    .download-buttons {
+    flex-direction: column;
+        align-items: center;
+        gap: var(--space-sm);
+}
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-md);
+    background: transparent;
+    z-index: 10;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.footer-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: var(--font-regular);
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--text-secondary);
+    text-decoration: underline;
+}
+
+.footer-separator {
+    color: var(--text-muted);
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+/* Legal Pages */
+.legal-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-lg);
+    }
+
+.legal-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    }
+
+.back-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: var(--font-regular);
+    margin-bottom: var(--space-lg);
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--primary-orange);
+}
+
+.legal-title {
+    font-size: 36px;
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-xl);
+    background: linear-gradient(135deg, #FFFFFF 0%, #F0F0F0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    }
+    
+.legal-content {
+    line-height: 1.6;
+    color: var(--text-secondary);
+    }
+    
+.legal-section {
+    margin-bottom: var(--space-2xl);
+    }
+    
+.legal-section h2 {
+    font-size: 24px;
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: var(--space-sm);
+    }
+    
+.legal-section h3 {
+        font-size: 18px;
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.legal-section p {
+    margin-bottom: var(--space-md);
+        font-size: 14px;
+    line-height: 1.7;
+    }
+    
+/* Legal Page Responsive */
+@media (max-width: 768px) {
+    .legal-page {
+        padding: var(--space-xl) var(--space-md);
+    }
+    
+    .legal-title {
+        font-size: 28px;
+    }
+    
+    .legal-section h2 {
+        font-size: 20px;
+    }
+    
+    .legal-section h3 {
+        font-size: 16px;
+    }
+}
